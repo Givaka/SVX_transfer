@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Компоненты стиля -->
+  <link rel="stylesheet" href="css/styleClear.min.css">
+  <link rel="stylesheet" href="css/animation.min.css">
+  <link rel="stylesheet" href="css/media.min.css">
+  <!-- Стиль документа -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <title>SVX</title>
+</head>
+
+<body>
+  <div id="enterFrame" >
+    <header>
+      <progress id="preloader" max="100" value="0"></progress>
+
+      <div class="auntifications">
+        <input type="radio" name="auntification" id="enter" class="enter" checked>
+        <label for="enter" onclick="swapPage('registrationPage', 'entryPage', {})">Вход</a></label>
+        <input type="radio" name="auntification" id="registration" class="registration">
+        <label for="registration" onclick="swapPage('entryPage', 'registrationPage', {})">Регистрация</a></label>
+      </div>
+      <div class="logo">
+        <div class="title">SVX</div>
+        <div class="sub-title">detailing</div>
+      </div>
+    </header>
+
+    <section id="entryPage">
+      <form id="entry-input">
+        <div class="enterInput">
+          <label for="phone-input">Номер телефона</label>
+          <input type="tel" name="authorization" id="phone-input" data-mask="phone" placeholder="+7 (___) ___-__-__"
+            required autocomplete="off">
+        </div>
+        <div class="enterInput">
+          <label for="password-input">Пароль</label>
+          <div class="inputInline">
+            <input type="password" name="authorization" id="password-input" required autocomplete="off">
+            <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+          </div>
+        </div>
+
+        <a href="#">Забыли пароль?</a>
+
+        <div class="eroorMessage" hidden>
+          Неверный номер телефона, пароль или такого аккаунта не существует
+        </div>
+
+        <input type="submit" value="Войти" class="btn enable" onclick="swapPage('enterFrame', 'main', {})">
+      </form>
+
+      <form id="restore-password" hidden>
+        <div class="enterInput">
+          <label for="phone-input">Номер телефона для восстановления пароля</label>
+          <input type="tel" name="authorization" id="phone-input" data-mask="phone" placeholder="+7 (___) ___-__-__"
+            required autocomplete="off">
+        </div>
+
+        <input type="submit" value="Прислать пароль в sms" class="btn enable">
+      </form>
+    </section>
+
+    <section id="registrationPage" hidden>
+      <form>
+        <div class="enterInput">
+          <label for="name">Фамилия, имя</label>
+          <input type="text" name="registration" id="name" required autocomplete="off">
+        </div>
+        <div class="enterInput">
+          <label for="car-brand">Марка авто</label>
+          <input type="text" name="registration" id="car-brand" required autocomplete="off">
+        </div>
+        <div class="enterInput">
+          <label for="car-model">Модель авто</label>
+          <input type="text" name="registration" id="car-model" required autocomplete="off">
+        </div>
+        <div class="enterInput">
+          <label for="car-number">Гос. номер</label>
+          <div class="inputInline">
+            <input type="text" name="registration" id="car-number" data-mask="car-number" required autocomplete="off">
+            <div class="car-number-help">
+              <span>Данные об авто вы сможете отредактировать в личном кабинете</span>
+            </div>
+          </div>
+        </div>
+        <div class="enterInput">
+          <label for="phone-input">Номер телефона</label>
+          <input type="tel" name="registration" id="phone-input" data-mask="phone" placeholder="+7 (___) ___-__-__"
+            required autocomplete="off">
+        </div>
+        <div class="enterInput">
+          <label for="password-input">Пароль</label>
+          <div class="inputInline">
+            <input type="password" name="registration" id="password-input" required autocomplete="off">
+            <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+          </div>
+        </div>
+
+        <div class="agreement">
+          <input type="radio" name="agreement" id="agreement-chec" required autocomplete="off">
+          <label for="agreement-chec">Я принимаю условия <a href="#"
+              onclick="swapPage('registrationPage','agreementPage',{'frameName': enterFrame, 'show': false})">пользовательского
+              соглашения</a></label>
+        </div>
+
+        <input type="submit" value="Зарегистрироваться" class="btn enable">
+      </form>
+    </section>
+
+    <section id="agreementPage" hidden>
+      <div class="bac">
+        <a href="#" onclick="swapPage('agreementPage','registrationPage', {'frameName': enterFrame, 'show': true})">
+          <div></div>
+        </a>
+      </div>
+      <h4>Пользовательское соглашение</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, itaque nulla? Incidunt, dolor velit
+        veniam tempore fugit culpa repudiandae mollitia repellat est facilis quo vero quos dolorum totam, repellendus
+        unde?
+        Eos exercitationem hic, blanditiis iure eveniet doloremque reiciendis maiores modi consectetur sint aperiam odio
+        optio nesciunt perspiciatis ratione at quaerat officia magni architecto laudantium nobis quo voluptatum ullam.
+        Consequuntur, dolore!
+        Facilis nisi blanditiis exercitationem eos sequi alias molestias facere, quos et quisquam dolores quis, unde
+        earum quo cupiditate rem, doloribus deleniti ad animi itaque. Esse laboriosam aut mollitia optio quasi?
+        Ea praesentium sed excepturi laborum voluptas, at id nihil quam minima aliquid quo obcaecati explicabo, quos
+        velit. Culpa atque eligendi modi, sapiente, beatae voluptates inventore pariatur dolorem, optio sed aperiam?
+        Odit pariatur nobis architecto obcaecati veniam non dolores, eaque doloremque numquam magnam, itaque, quasi
+        cumque asperiores libero quisquam ab repellat laboriosam laudantium saepe id aspernatur quis. Eos odio animi
+        doloremque.
+        In illum eveniet similique impedit praesentium expedita vero, recusandae adipisci perferendis, quo dolor cumque
+        voluptates iusto, vel dolore voluptatibus minima atque amet. Deleniti nostrum eveniet ducimus vero sed culpa a.
+        Placeat fuga ratione dolore ipsam eligendi veritatis sequi asperiores enim! Eos sequi ut doloribus perspiciatis
+        debitis fugit voluptatem eligendi fuga atque! Nesciunt assumenda repudiandae tenetur dolor dolorem totam!
+        Aperiam, soluta?
+        Accusantium minima fugiat officia beatae, debitis ratione porro sed non officiis consequatur pariatur labore
+        esse vero adipisci quasi voluptas vel expedita, cum quibusdam quos. Magnam recusandae a consequuntur expedita
+        nemo.</p>
+    </section>
+  </div>
+
+  <main id="main" hidden>
+    <header >
+      <div class="menu">
+        <div class="title">SVX</div>
+        <a href="#" class="notifications hide-before" onclick="toNotifications()"></a>
+      </div>
+    </header>
+
+    <section id="services" >
+      <nav>
+        <input type="radio" name="service" id="washing" checked>
+        <label for="washing" onclick="sliderPage('all-service','washingPage')">Мойка кузова</label>
+        <input type="radio" name="service" id="detailing">
+        <label for="detailing" onclick="sliderPage('all-service','detailingPage')">Детейлинг</label>
+        <input type="radio" name="service" id="care">
+        <label for="care" onclick="sliderPage('all-service','carePage')">Уход за салоном</label>
+        <input type="radio" name="service" id="ceramics">
+        <label for="ceramics" onclick="sliderPage('all-service','ceramicsPage')">Керамика</label>
+        <input type="radio" name="service" id="dry-cleaning">
+        <label for="dry-cleaning" onclick="sliderPage('all-service','dry-cleaningPage')">Химчистка салона</label>
+        <input type="radio" name="service" id="film">
+        <label for="film" onclick="sliderPage('all-service','filmPage')">Пленка</label>
+      </nav>
+      <p>Выберите услугу</p>
+      <div id="washingPage" class="all-service">
+        <div class="card" onclick="seeService(this)" service="washing-1">
+          <div class="preview" time-delay="35-60 мин"><img
+              src="image/service/preview/Деликатная мойка кузова в 2 этапа.png" alt=""></div>
+          <div>Деликатная мойка кузова в 2 этапа</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="washing-2">
+          <div class="preview" time-delay="40-60 мин"><img
+              src="image/service/preview/Деликатная мойка кузова в 3 этапа.png" alt="">
+          </div>
+          <div>Деликатная мойка кузова в 3 этапа</div>
+        </div>
+      </div>
+
+      <div id="detailingPage" class="all-service" hidden>
+        <div class="card" onclick="seeService(this)" service="detailing-1">
+          <div class="preview" time-delay="90-120 мин"><img src="image/service/preview/Детейлинговый уход.png" alt="">
+          </div>
+          <div>Детейлинговый уход</div>
+        </div>
+      </div>
+
+      <div id="carePage" class="all-service" hidden>
+        <div class="card" onclick="seeService(this)" service="care-1">
+          <div class="preview" time-delay="90-120 мин"><img src="image/service/preview/Стандарт.png" alt="">
+          </div>
+          <div>Стандарт</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="care-2">
+          <div class="preview" time-delay="90-120 мин"><img src="image/service/preview/Стандарт +.png" alt="">
+          </div>
+          <div>Стандарт +</div>
+        </div>
+      </div>
+
+      <div id="ceramicsPage" class="all-service" hidden>
+        <div class="card" onclick="seeService(this)" service="ceramics-1">
+          <div class="preview" time-delay="1-2 дня"><img src="image/service/preview/Кварцевое защитное.png" alt="">
+          </div>
+          <div>Кварцевое защитное покрытие для кузова Gyeon Q² Pure EVO</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="ceramics-2">
+          <div class="preview" time-delay="6-9 ч"><img src="image/service/preview/Защита салона.png" alt="">
+          </div>
+          <div>Защита салона Gyeon Q² Leather shield</div>
+        </div>
+      </div>
+
+      <div id="dry-cleaningPage" class="all-service" hidden>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-1">
+          <div class="preview" time-delay="1-2 дня"><img
+              src="image/service/preview/Детейлинг химчистка салона (Комплексная).png" alt="">
+          </div>
+          <div>Детейлинг химчистка салона</div>
+          <div class="sub-text">Комплексная</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-2">
+          <div class="preview" time-delay="1-2 дня"><img
+              src="image/service/preview/Детейлинг химчистка салона (Без багажника).png" alt="">
+          </div>
+          <div>Детейлинг химчистка салона</div>
+          <div class="sub-text">Без багажника</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-3">
+          <div class="preview" time-delay="2 ч"><img src="image/service/preview/Химчистка обшивки двери.png" alt="">
+          </div>
+          <div>Химчистка обшивки двери, подлокотника, либо стойки крыши</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-4">
+          <div class="preview" time-delay="6-9 ч"><img
+              src="image/service/preview/Химчистка передних креслел (Текстиль).png" alt="">
+          </div>
+          <div>Химчистка передних креслел</div>
+          <div class="sub-text">Текстиль</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-5">
+          <div class="preview" time-delay="1 ч"><img
+              src="image/service/preview/Химчистка передних креслел (Темная кожа).png" alt="">
+          </div>
+          <div>Химчистка передних креслел</div>
+          <div class="sub-text">Темная кожа</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-6">
+          <div class="preview" time-delay="1 ч"><img
+              src="image/service/preview/Химчистка передних креслел (Светлая кожа, анилиновая, алькантара).png" alt="">
+          </div>
+          <div>Химчистка передних креслел</div>
+          <div class="sub-text">Светлая кожа, анилиновая, алькантара</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-7">
+          <div class="preview" time-delay="6-9 ч"><img
+              src="image/service/preview/Химчистка заднего дивана (Текстиль).png" alt="">
+          </div>
+          <div>Химчистка заднего дивана</div>
+          <div class="sub-text">Текстиль</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-8">
+          <div class="preview" time-delay="6-9 ч"><img
+              src="image/service/preview/Химчистка заднего дивана (Темная кожа).png" alt="">
+          </div>
+          <div>Химчистка заднего дивана</div>
+          <div class="sub-text">Темная кожа</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-9">
+          <div class="preview" time-delay="2-3 ч"><img
+              src="image/service/preview/Химчистка заднего дивана (Светлая кожа, анилиновая, алькантара).png" alt="">
+          </div>
+          <div>Химчистка заднего дивана</div>
+          <div class="sub-text">Светлая кожа, анилиновая, алькантара</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-10">
+          <div class="preview" time-delay="4 ч"><img
+              src="image/service/preview/Химчистка потолка (Включая солнцезащитные козырьки).png" alt="">
+          </div>
+          <div>Химчистка потолка</div>
+          <div class="sub-text">Включая солнцезащитные козырьки</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-11">
+          <div class="preview" time-delay="3-4 ч"><img
+              src="image/service/preview/Химчистка коврового покрытия пола салона.png" alt="">
+          </div>
+          <div>Химчистка коврового покрытия пола салона</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="dry-cleaning-12">
+          <div class="preview" time-delay="2-3 ч"><img src="image/service/preview/Химчистка багажника.png" alt="">
+          </div>
+          <div>Химчистка багажника</div>
+        </div>
+      </div>
+
+      <div id="filmPage" class="all-service" hidden>
+        <div class="card" onclick="seeService(this)" service="film-1">
+          <div class="preview" time-delay="1-2 дня"><img
+              src="image/service/preview/Оклейка кузова автомобиля (Полностью).png" alt="">
+          </div>
+          <div>Оклейка кузова автомобиля</div>
+          <div class="sub-text">Полностью</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-2">
+          <div class="preview" time-delay="1-2 дня"><img
+              src="image/service/preview/Оклейка кузова автомобиля (Без крыши).png" alt="">
+          </div>
+          <div>Оклейка кузова автомобиля</div>
+          <div class="sub-text">Без крыши</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-3">
+          <div class="preview" time-delay="6-9 ч"><img src="image/service/preview/Оклейка зоны риска (Полностью).png" alt="">
+          </div>
+          <div>Оклейка зоны риска</div>
+          <div class="sub-text">Капот, бампер, крылья, фары, зеркала, стойки лобового стекла, полоса на крышу</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-4">
+          <div class="preview" time-delay="6 ч"><img src="image/service/preview/Оклейка зоны риска (Частично).png" alt="">
+          </div>
+          <div>Оклейка зоны риска</div>
+          <div class="sub-text">Капот, бампер, крылья, фары, зеркала</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-5">
+          <div class="preview" time-delay="4 ч"><img src="image/service/preview/Оклейка капота и бамера.png" alt="">
+          </div>
+          <div>Оклейка капота и бамера</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-6">
+          <div class="preview" time-delay="90 мин"><img src="image/service/preview/Оклейка капота.png" alt="">
+          </div>
+          <div>Оклейка капота</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-7">
+          <div class="preview" time-delay="3 ч"><img src="image/service/preview/Оклейка бамера.png" alt="">
+          </div>
+          <div>Оклейка бамера</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-8">
+          <div class="preview" time-delay="1 ч"><img src="image/service/preview/Оклейка крыла.png" alt="">
+          </div>
+          <div>Оклейка крыла</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-9">
+          <div class="preview" time-delay="1 ч"><img src="image/service/preview/Оклейка двери.png" alt="">
+          </div>
+          <div>Оклейка двери</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-10">
+          <div class="preview" time-delay="2-3 ч"><img src="image/service/preview/Оклейка крышки багажника.png" alt="">
+          </div>
+          <div>Оклейка крышки багажника</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-11">
+          <div class="preview" time-delay="3-4 ч"><img src="image/service/preview/Оклейка крыши.png" alt="">
+          </div>
+          <div>Оклейка крыши</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-12">
+          <div class="preview" time-delay="2 ч"><img src="image/service/preview/Оклейка наружнего порога.png" alt="">
+          </div>
+          <div>Оклейка наружнего порога</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-13">
+          <div class="preview" time-delay="2 ч"><img src="image/service/preview/Оклейка внутреннего порога.png" alt="">
+          </div>
+          <div>Оклейка внутреннего порога</div>
+        </div>
+        <div class="card" onclick="seeService(this)" service="film-14">
+          <div class="preview" time-delay="2 ч"><img src="image/service/preview/Оклейка уширителя арки.png" alt="">
+          </div>
+          <div>Оклейка уширителя арки</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="descriptions" hidden>
+      <article class="service" id="washing-1" hidden>
+        <div class="view" time-delay="35-60 мин">
+          <img src="image/service/Деликатная мойка кузова в 2 этапа.png" alt="">
+        </div>
+        <div>
+          <h2>Деликатная мойка кузова в 2 этапа</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Бесконтактная мойка специальным составом</li>
+            <li>Ручная мойка кузова (пористыми губками)</li>
+            <li>Турбосушка кузова автомобиля (сушка горячим воздухом)</li>
+            <li>Чистка ковриков</li>
+            <li>Чернение колес</li>
+          </ul>
+          <div class="btn enable" onclick="swapPage('descriptions', 'appointment', {})">Записаться</div>
+        </div>
+      </article>
+      <article class="service" id="washing-2" hidden>
+        <div class="view" time-delay="40-60 мин">
+          <img src="image/service/Деликатная мойка кузова в 3 этапа.png" alt="">
+        </div>
+        <div>
+          <h2>Деликатная мойка кузова в 3 этапа</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Бесконтактная мойка специальным составом</li>
+            <li>Ручная мойка кузова</li>
+            <li>Нанесение на кузов гидрофобного состава</li>
+            <li>Чистка ковриков</li>
+            <li>Турбосушка кузова автомобиля (сушка горячим воздухом)</li>
+            <li>Чернение колес</li>
+          </ul>
+          <div class="btn enable" onclick="swapPage('descriptions', 'appointment', {})">Записаться</div>
+        </div>
+      </article>
+
+      <article class="service" id="detailing-1" hidden>
+        <div class="view" time-delay="90-120 мин">
+          <img src="image/service/Детейлинговый уход.png" alt="">
+        </div>
+        <div>
+          <h2>Детейлинговый уход</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Бесконтактная мойка специальным составом Geyon</li>
+            <li>Ручная мойка кузова авто-шампунем Gyeon Bathe Essence</li>
+            <li>Очистка колесных дисков с лицевой стороны щадящим кислотным составом Iron X</li>
+            <li>Удаление битума (кузов автомобиля полнстью)</li>
+            <li>Консервация ЛКП кварцевым гидрофобным составом Gyeon WetCoat Essence</li>
+            <li>Чистка ковриков</li>
+            <li>Турбосушка кузова</li>
+            <li>Чернение колес</li>
+          </ul>
+          <div class="btn enable" onclick="swapPage('descriptions', 'appointment', {})">Записаться</div>
+        </div>
+      </article>
+
+      <article class="service" id="care-1" hidden>
+        <div class="view" time-delay="30 мин">
+          <img src="image/service/Стандарт.png" alt="">
+        </div>
+        <div>
+          <h2>Стандарт</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Пылесос салона</li>
+            <li>Влажная уборка</li>
+            <li>Чистка ковриков</li>
+            <li>Чистка стекол</li>
+          </ul>
+          <div class="btn enable" onclick="swapPage('descriptions', 'appointment', {})">Записаться</div>
+        </div>
+      </article>
+      <article class="service" id="care-2" hidden>
+        <div class="view" time-delay="30-40 мин">
+          <img src="image/service/Стандарт +.png" alt="">
+        </div>
+        <div>
+          <h2>Стандарт +</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Предварительная влажная уборка салона</li>
+            <li>Чистка пластиковых деталей с антистатиком</li>
+            <li>Обработка изделий из кожи кондиционером</li>
+            <li>Чистка ковриков</li>
+          </ul>
+          <div class="btn enable" onclick="swapPage('descriptions', 'appointment', {})">Записаться</div>
+        </div>
+      </article>
+
+      <article class="service" id="ceramics-1" hidden>
+        <div class="view" time-delay="1-2 дня">
+          <img src="image/service/Кварцевое защитное.png" alt="">
+        </div>
+        <div>
+          <h2>Кварцевое защитное покрытие для кузова Gyeon Q² Pure EVO</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Защита поверхности от воздействия внешних факторов (реагенты, дорожный налет, царапины и выцветания)
+            </li>
+            <li>Формирование глубокого, зеркального блеска</li>
+            <li>Грязе-водоотталкивающим эффект</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+
+      <article class="service" id="ceramics-2" hidden>
+        <div class="view" time-delay="6-9 ч">
+          <img src="image/service/Защита салона.png" alt="">
+        </div>
+        <div>
+          <h2>Защита салона Gyeon Q² Leather shield</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Защита кожаной отделки интерьера на срок до 12 месяцев</li>
+            <li>Защита кожи от всех типов загрязнений, покрасов, выгорания (кожа не становится скользкой или лоснящейся)
+            </li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+
+      <article class="service" id="dry-cleaning-1" hidden>
+        <div class="view" time-delay="1-2 дня">
+          <img src="image/service/Детейлинг химчистка салона (Комплексная).png" alt="">
+        </div>
+        <div>
+          <h2>Комплексная детейлинг химчистка салона</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Трех фазная мойка кузова с турбо-сушкой</li>
+            <li>Мойка двигателя с турбо-сушкой</li>
+            <li>Чистка дисков спец средством без снятия</li>
+            <li>Химчистка салона</li>
+            <li>Химчистка багажника</li>
+            <li>Чистка пластика с консервантом</li>
+            <li>Обработка изделий из кожи кремом - консервантом (защита от загрязнений)</li>
+            <li>Чернение колес</li>
+            <li>Озонирование салона</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-2" hidden>
+        <div class="view" time-delay="1-2 дня">
+          <img src="image/service/Детейлинг химчистка салона (Без багажника).png" alt="">
+        </div>
+        <div>
+          <h2>Детейлинг химчистка салона без багажника</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Трех фазная мойка кузова с турбо-сушкой</li>
+            <li>Химчистка салона</li>
+            <li>Чистка пластика с консервантом</li>
+            <li>Обработка изделий из кожи кремом консервантом (защита от загрязнений)</li>
+            <li>Чернение колес</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-3" hidden>
+        <div class="view" time-delay="2 ч">
+          <img src="image/service/Химчистка обшивки двери.png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка обшивки двери, подлокотника, либо стойки крыши</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-4" hidden>
+        <div class="view" time-delay="6-9 ч">
+          <img src="image/service/Химчистка передних креслел (Текстиль).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка передних креслел</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Текстиль</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-5" hidden>
+        <div class="view" time-delay="1 ч">
+          <img src="image/service/Химчистка передних креслел (Темная кожа).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка передних креслел</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Темная кожа</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-6" hidden>
+        <div class="view" time-delay="1 ч">
+          <img src="image/service/Химчистка передних креслел (Светлая кожа, анилиновая, алькантара).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка передних креслел</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Светлая кожа, анилиновая, алькантара</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-7" hidden>
+        <div class="view" time-delay="6-9 ч">
+          <img src="image/service/Химчистка заднего дивана (Текстиль).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка заднего дивана</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Текстиль</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-8" hidden>
+        <div class="view" time-delay="2-3 ч">
+          <img src="image/service/Химчистка заднего дивана (Темная кожа).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка заднего дивана</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Темная кожа</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-9" hidden>
+        <div class="view" time-delay="2-3 ч">
+          <img src="image/service/Химчистка заднего дивана (Светлая кожа, анилиновая, алькантара).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка заднего дивана</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Светлая кожа, анилиновая, алькантара</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-10" hidden>
+        <div class="view" time-delay="4 ч">
+          <img src="image/service/Химчистка потолка (Включая солнцезащитные козырьки).png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка потолка</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Включая солнцезащитные козырьки</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-11" hidden>
+        <div class="view" time-delay="3-4 ч">
+          <img src="image/service/Химчистка коврового покрытия пола салона.png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка коврового покрытия пола салона</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="dry-cleaning-12" hidden>
+        <div class="view" time-delay="2-3 ч">
+          <img src="image/service/Химчистка багажника.png" alt="">
+        </div>
+        <div>
+          <h2>Химчистка багажника</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+
+      <article class="service" id="film-1" hidden>
+        <div class="view" time-delay="1-2 дня">
+          <img src="image/service/Оклейка кузова автомобиля (Полностью).png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка кузова автомобиля</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Полностью</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-2" hidden>
+        <div class="view" time-delay="1-2 дня">
+          <img src="image/service/Оклейка кузова автомобиля (Без крыши).png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка кузова автомобиля</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Без крыши</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-3" hidden>
+        <div class="view" time-delay="6-9 ч">
+          <img src="image/service/Оклейка зоны риска (Полностью).png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка зоны риска</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Капот, бампер, крылья, фары, зеркала, стойки лобового стекла, полоса на крышу</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-4" hidden>
+        <div class="view" time-delay="6 ч">
+          <img src="image/service/Оклейка зоны риска (Частично).png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка зоны риска</h2>
+          <p class="price">от 1050 ₽</p>
+          <ul>
+            <li>Капот, бампер, крылья, фары, зеркала</li>
+          </ul>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-5" hidden>
+        <div class="view" time-delay="4 ч">
+          <img src="image/service/Оклейка капота и бамера.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка капота и бампера</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-6" hidden>
+        <div class="view" time-delay="90 мин">
+          <img src="image/service/Оклейка капота.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка капота</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-7" hidden>
+        <div class="view" time-delay="3 ч">
+          <img src="image/service/Оклейка бамера.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка бампера</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-8" hidden>
+        <div class="view" time-delay="1 ч">
+          <img src="image/service/Оклейка крыла.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка крыла</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-9" hidden>
+        <div class="view" time-delay="1 ч">
+          <img src="image/service/Оклейка двери.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка двери</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-10" hidden>
+        <div class="view" time-delay="2-3 ч">
+          <img src="image/service/Оклейка крышки багажника.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка крышки багажника</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-11" hidden>
+        <div class="view" time-delay="3-4 ч">
+          <img src="image/service/Оклейка крыши.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка крыши</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-12" hidden>
+        <div class="view" time-delay="2 ч">
+          <img src="image/service/Оклейка наружнего порога.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка наружнего порога</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-13" hidden>
+        <div class="view" time-delay="2 ч">
+          <img src="image/service/Оклейка внутреннего порога.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка внутреннего порога</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+      <article class="service" id="film-14" hidden>
+        <div class="view" time-delay="2 ч">
+          <img src="image/service/Оклейка уширителя арки.png" alt="">
+        </div>
+        <div>
+          <h2>Оклейка уширителя арки</h2>
+          <p class="price">от 1050 ₽</p>
+          <div class="btn enable">Оставить заявку</div>
+        </div>
+      </article>
+    </section>
+
+    <section id="appointment" hidden>
+      <form action="">
+        <div class="date">
+          <h4>Выбрать дату</h4>
+          <div class="slider">
+            <input type="radio" name="date" id="01" checked><label for="01">
+              <p>01</p>
+              <p>чт</p>
+            </label>
+            <input type="radio" name="date" id="02"><label for="02">
+              <p>02</p>
+              <p>пт</p>
+            </label>
+            <input type="radio" name="date" id="03"><label for="03">
+              <p>03</p>
+              <p>сб</p>
+            </label>
+            <input type="radio" name="date" id="04"><label for="04">
+              <p>04</p>
+              <p>вс</p>
+            </label>
+            <input type="radio" name="date" id="05"><label for="05">
+              <p>05</p>
+              <p>пн</p>
+            </label>
+            <input type="radio" name="date" id="06"><label for="06">
+              <p>06</p>
+              <p>вт</p>
+            </label>
+            <input type="radio" name="date" id="07"><label for="07">
+              <p>07</p>
+              <p>ср</p>
+            </label>
+            <input type="radio" name="date" id="08"><label for="08">
+              <p>08</p>
+              <p>чт</p>
+            </label>
+            <input type="radio" name="date" id="09"><label for="09">
+              <p>09</p>
+              <p>пт</p>
+            </label>
+            <input type="radio" name="date" id="10"><label for="10">
+              <p>10</p>
+              <p>сб</p>
+            </label>
+            <input type="radio" name="date" id="11"><label for="11">
+              <p>11</p>
+              <p>вс</p>
+            </label>
+            <input type="radio" name="date" id="12"><label for="12">
+              <p>12</p>
+              <p>пн</p>
+            </label>
+            <input type="radio" name="date" id="13"><label for="13">
+              <p>13</p>
+              <p>вт</p>
+            </label>
+            <input type="radio" name="date" id="14"><label for="14">
+              <p>14</p>
+              <p>ср</p>
+            </label>
+            <input type="radio" name="date" id="15"><label for="15">
+              <p>15</p>
+              <p>чт</p>
+            </label>
+            <input type="radio" name="date" id="16"><label for="16">
+              <p>16</p>
+              <p>пт</p>
+            </label>
+            <input type="radio" name="date" id="17"><label for="17">
+              <p>17</p>
+              <p>сб</p>
+            </label>
+            <input type="radio" name="date" id="18"><label for="18">
+              <p>18</p>
+              <p>вс</p>
+            </label>
+            <input type="radio" name="date" id="19"><label for="19">
+              <p>19</p>
+              <p>пн</p>
+            </label>
+            <input type="radio" name="date" id="20"><label for="20">
+              <p>20</p>
+              <p>вт</p>
+            </label>
+            <input type="radio" name="date" id="21"><label for="21">
+              <p>21</p>
+              <p>ср</p>
+            </label>
+            <input type="radio" name="date" id="22"><label for="22">
+              <p>22</p>
+              <p>чт</p>
+            </label>
+            <input type="radio" name="date" id="23"><label for="23">
+              <p>23</p>
+              <p>пт</p>
+            </label>
+            <input type="radio" name="date" id="24"><label for="24">
+              <p>24</p>
+              <p>сб</p>
+            </label>
+            <input type="radio" name="date" id="25"><label for="25">
+              <p>25</p>
+              <p>вс</p>
+            </label>
+            <input type="radio" name="date" id="26"><label for="26">
+              <p>26</p>
+              <p>пн</p>
+            </label>
+            <input type="radio" name="date" id="27"><label for="27">
+              <p>27</p>
+              <p>вт</p>
+            </label>
+            <input type="radio" name="date" id="28"><label for="28">
+              <p>28</p>
+              <p>ср</p>
+            </label>
+          </div>
+        </div>
+        <div class="time">
+          <h4>Выбрать время</h4>
+          <div class="morning">
+            <h5>Утро</h5>
+            <div class="slider">
+              <input type="radio" name="time" id="10am" checked><label for="10am">10:00</label>
+              <input type="radio" name="time" id="11am"><label for="11am">11:00</label>
+              <input type="radio" name="time" id="12am"><label for="12am">12:00</label>
+            </div>
+          </div>
+          <div class="daytime">
+            <h5>День</h5>
+            <div class="slider">
+              <input type="radio" name="time" id="1pm"><label for="1pm">13:00</label>
+              <input type="radio" name="time" id="2pm"><label for="2pm">14:00</label>
+              <input type="radio" name="time" id="3pm"><label for="3pm">15:00</label>
+              <input type="radio" name="time" id="4pm"><label for="4pm">16:00</label>
+              <input type="radio" name="time" id="5pm"><label for="5pm">17:00</label>
+            </div>
+          </div>
+          <div class="evening">
+            <h5>Вечер</h5>
+            <div class="slider">
+              <input type="radio" name="time" id="6pm"><label for="6pm">18:00</label>
+              <input type="radio" name="time" id="7pm"><label for="7pm">19:00</label>
+              <input type="radio" name="time" id="8pm"><label for="8pm">20:00</label>
+              <input type="radio" name="time" id="9pm"><label for="9pm">21:00</label>
+            </div>
+          </div>
+        </div>
+        <div class="auto slider">
+          <h4>Выбрать авто</h4>
+          <input type="radio" name="auto" id="auto-1" checked><label for="auto-1">Audi - A5</label>
+          <input type="radio" name="auto" id="auto-2"><label for="auto-2">Mini - Cooper</label>
+          <input type="radio" name="auto" id="auto-3"><label for="auto-3">Мотоцикл</label>
+        </div>
+        <div class="salon">
+          <h4>Выбрать салон</h4>
+          <input type="radio" name="salon" id="yeltsin" checked>
+          <label for="yeltsin">
+            <div class="card">
+              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+              </div>
+              <div>Ельцин центр</div>
+              <div class="sub-text">Бориса ельцина 3, паркинг, В сектор</div>
+            </div>
+          </label>
+
+          <input type="radio" name="salon" id="alatyr">
+          <label for="alatyr">
+            <div class="card">
+              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+              </div>
+              <div>ТРЦ Алатырь</div>
+              <div class="sub-text">Малышева 5, паркинг, -3 этаж</div>
+            </div>
+          </label>
+
+          <input type="radio" name="salon" id="tower">
+          <label for="tower">
+            <div class="card">
+              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+              </div>
+              <div>Башня Исеть</div>
+              <div class="sub-text">Бориса ельцина 6, паркинг, -2 этаж</div>
+            </div>
+          </label>
+        </div>
+
+        <input type="submit" value="Записаться" class="btn enable" onclick="record()">
+      </form>
+    </section>
+
+    <section id="records" hidden>
+      <div class="when">
+        <h4>Вы записаны</h4>
+        <div class="slider">
+          <div>21 января 2023</div>
+          <div>16:00</div>
+          <div>1050 ₽</div>
+        </div>
+      </div>
+      <div class="where">
+        <h2>Деликатная мойка кузова в 2 этапа</h2>
+        <div class="card">
+          <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+          </div>
+          <div>Ельцин центр</div>
+          <div class="sub-text">Бориса ельцина 3, паркинг, В сектор</div>
+        </div>
+      </div>
+      <div class="remind">
+        <h3>Напомнить</h3>
+        <div class="slider">
+          <input type="radio" name="remind" id="for-day"><label for="for-day">За день</label>
+          <input type="radio" name="remind" id="for-3hour"><label for="for-3hour">За 3 часа</label>
+          <input type="radio" name="remind" id="for-hour" checked><label for="for-hour">За час</label>
+        </div>
+      </div>
+
+      <a href="#" class="btn enable">Отменить</a>
+      <h6>Так же отменить запись вы сможете в разделе уведомления</h6>
+    </section>
+
+    <section id="EROOR-successful" hidden>
+      <div id="EROOR">
+        <h2>Что-то пошло не так, мы устраним неисправность в ближайшее время</h2>
+        <a href="#" class="btn enable">Записаться по телефону</a>
+        <a href="#" class="btn">Записаться через WhatsApp</a>
+        <a href="#" class="btn">Записаться через Telegram</a>
+      </div>
+
+      <div class="successful" hidden>
+        <h2>Спасибо за заявку!</h2>
+        <h2>Оператор свяжется с вами в ближайшее время</h2>
+        <h4>Выбрать способ связи</h4>
+        <a href="#" class="btn">Звонок</a>
+        <a href="#" class="btn">WhatsApp</a>
+        <a href="#" class="btn">Telegram</a>
+      </div>
+    </section>
+
+    <section id="profile" hidden>
+      <div id="account">
+        <div class="account">
+          <img src="image/avatar.png" alt="">
+          <div class="account-date">
+            <div class="field-name">
+              <input type="text" class="name" value="Дмитрий Наумов" readonly></input>
+            </div>
+            <div class="field-phone">
+              <input type="text" class="phone" data-mask="phone" value="+7 (912) 044-00-07" readonly></input>
+            </div>
+          </div>
+          <a href="#" id='editProfile' class="btn enable" onclick="editProfile()">Ред.</a>
+        </div>
+        <div class="garage">
+          <h4>Гараж</h4>
+          <div id="garage-0" class="auto">
+            <div class="btn">Audi - A5</div>
+          </div>
+          <div id="garage-1" class="auto">
+            <div class="btn">Mini - Cooper</div>
+          </div>
+          <div id="garage-2" class="auto">
+            <div class="btn">Мотоцикл</div>
+          </div>
+          <form id="create_garage" hidden>
+            <div class="enterInput">
+              <label for="car-brand">Марка авто</label>
+              <input type="text" name="registration" id="car-brand" required autocomplete="off">
+            </div>
+            <div class="enterInput">
+              <label for="car-model">Модель авто</label>
+              <input type="text" name="registration" id="car-model" required autocomplete="off">
+            </div>
+            <div class="enterInput">
+              <label for="car-number">Гос. номер</label>
+              <input type="text" name="registration" id="car-number" data-mask="car-number" required autocomplete="off">
+            </div>
+            <input type="submit" value="Добавить" class="btn enable">
+          </form>
+        </div>
+        <div class="history">
+          <h4>История посещений</h4>
+          <div class="slider year">
+            <input type="radio" name="year" id="y-2022" checked>
+            <label for="y-2022" class="btn">2022</label>
+            <input type="radio" name="year" id="y-2021">
+            <label for="y-2021" class="btn">2021</label>
+            <input type="radio" name="year" id="y-2020">
+            <label for="y-2020" class="btn">2020</label>
+            <input type="radio" name="year" id="y-2019">
+            <label for="y-2019" class="btn">2019</label>
+          </div>
+          <div class="slider month">
+            <input type="radio" name="month" id="m-01" checked>
+            <label for="m-01" class="btn">Январь</label>
+            <input type="radio" name="month" id="m-02">
+            <label for="m-02" class="btn">Февраль</label>
+            <input type="radio" name="month" id="m-03">
+            <label for="m-03" class="btn">Март</label>
+            <input type="radio" name="month" id="m-04">
+            <label for="m-04" class="btn">Апрель</label>
+            <input type="radio" name="month" id="m-05">
+            <label for="m-05" class="btn">Май</label>
+            <input type="radio" name="month" id="m-06">
+            <label for="m-06" class="btn">Июнь</label>
+            <input type="radio" name="month" id="m-07">
+            <label for="m-07" class="btn">Июль</label>
+            <input type="radio" name="month" id="m-08">
+            <label for="m-08" class="btn">Август</label>
+            <input type="radio" name="month" id="m-09">
+            <label for="m-09" class="btn">Сентябрь</label>
+            <input type="radio" name="month" id="m-10">
+            <label for="m-10" class="btn">Октябрь</label>
+            <input type="radio" name="month" id="m-11">
+            <label for="m-11" class="btn">Ноябрь</label>
+            <input type="radio" name="month" id="m-12">
+            <label for="m-12" class="btn">Декабрь</label>
+          </div>
+
+          <div class="card" service="detailing-1">
+            <div class="preview" time-delay="90-120 мин"><img src="image/service/preview/Детейлинговый уход.png" alt="">
+            </div>
+            <div>Детейлинговый уход</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="editAvatar" hidden>
+      <div class="avatar" >
+        <div class="image">
+          <img id="editImage" class="image" src="image/avatar-big.png" alt="">
+          <canvas id="canvas" class="canvas">
+            <!-- Your browser does not support JS or HTML5! -->
+          </canvas>
+        </div>
+
+        <button class="btn enable" id="saveBtn">Готово</button>
+      </div>
+    </section>
+
+    <section id="contact" hidden>
+      <div class="map" onclick="expandMap()"><img src="image/map.png" alt=""></div>
+      <div class="addresses">
+        <p>
+        <div class="builds">Ельцин центр</div>
+        <div class="adds">Бориса ельцина 3, паркинг, В сектор</div>
+        </p>
+        <p>
+        <div class="builds">Башня Исеть</div>
+        <div class="adds">Бориса ельцина 6, паркинг, -2 этаж</div>
+        </p>
+        <p>
+        <div class="builds">ТЦ Алатырь</div>
+        <div class="adds">Ул. Малышева 5, паркинг, -3 этаж</div>
+        </p>
+      </div>
+      <div class="social">
+        <a href="#" class="instagram"></a>
+        <a href="#" class="facebook"></a>
+        <a href="#" class="vk"></a>
+        <a href="#" class="youtube"></a>
+      </div>
+      <div class="email">
+        <h4>info@svx-ekb.ru</h4>
+      </div>
+      <a href="#" class="btn enable"><img src="image/icons/contact.svg" alt="">
+        <p>288-7-444</p>
+      </a>
+    </section>
+
+    <section id="settings" hidden>
+      <div id="options">
+        <div class="options">
+          <h3>Уведомления</h3>
+
+          <form>
+            <label for="sound">Звук</label>
+            <label for="sound" class="ios-checkbox">
+              <input type="checkbox" name="option" id="sound">
+              <label for="sound"></label>
+            </label>
+            <label for="vibration">Вибрация</label>
+            <label for="vibration" class="ios-checkbox">
+              <input type="checkbox" name="option" id="vibration">
+              <label for="vibration"></label>
+            </label>
+          </form>
+        </div>
+        <div class="who-did">
+          <div>
+            <h6>Приложение задизайнено</h5>
+              <img src="image/Logo.svg" alt="логотип студии NaumovART">
+          </div>
+        </div>
+        <div class="btn-group">
+          <a href="#" class="btn">Служба поддержки</a>
+          <a href="#" class="btn enable" onclick="swapPage('options', 'exitAccount', {})">Выйти</a>
+          <a href="#" onclick="swapPage('options', 'deleteAccount', {})">Удалить аккаунт</a>
+        </div>
+      </div>
+
+      <div id="exitAccount" hidden>
+        <h2>Вы действительно хотите выйти?</h2>
+        <a href="#" class="btn">Да</a>
+        <a href="#" class="btn enable" onclick="swapPage('exitAccount', 'options', {})">Нет</a>
+      </div>
+      <div id="deleteAccount" hidden>
+        <h2>Вы действительно хотите удалить аккаунт?</h2>
+        <a href="#" class="btn">Да</a>
+        <a href="#" class="btn enable" onclick="swapPage('deleteAccount', 'options', {})">Нет</a>
+        <h5>
+          Восстановить аккаунт будет невозможно.
+          Для повторного исполования приложения вам нужно будет пройти регистрацию
+        </h5>
+      </div>
+    </section>
+
+    <section id="notifications" hidden>
+      <div class="notification">
+        <h4>Промокод</h4>
+        <div class="description">Всю неделю SVX дарит премиальное гидрофобное покрытие для стёкл, при выборе комплекса
+          SVX Detailing.</div>
+        <div class="date">14.10.2022 14:30</div>
+      </div>
+
+      <div class="notification">
+        <h4>Запись</h4>
+        <div class="description">Вы записаны на услугу: Деликатная мойка кузова в 2 этапа. 21 января 2023. 16:00. Цена:
+          1050₽</div>
+        <div class="date">07.10.2022 10:02</div>
+        <a href="#" class="btn enable">Отменить</a>
+      </div>
+
+      <div class="notification">
+        <h4>До вашего визита осталось 3 часа</h4>
+        <div class="description">Вы записаны на услугу: Деликатная мойка кузова в 2 этапа. 21 января 2023. 16:00. Цена:
+          1050₽ </div>
+        <a href="#" class="btn enable">Отменить</a>
+      </div>
+    </section>
+
+    <footer >
+      <nav>
+        <a href="#" class="menu" id="contact" onclick="footerSwap('contact')"></a>
+        <a href="#" class="menu" id="home" onclick="footerSwap('services')"></a>
+        <a href="#" class="menu" id="profile" onclick="toProfile()"></a>
+      </nav>
+    </footer>
+  </main>
+
+</body>
+
+</html>
+<script src="js/preloader.min.js"></script>
+<script src="js/imask-lib.min.js"></script>
+<script src="js/imask.min.js"></script>
+<script src="js/avatar-edit.min.js"></script>
+<script src="js/index.min.js"></script>
