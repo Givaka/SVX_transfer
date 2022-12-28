@@ -79,16 +79,46 @@
     <section id="registrationPage" hidden>
       <form>
         <div class="enterInput">
-          <label for="name">Фамилия, имя</label>
+          <label for="name">Фамилия</label>
+          <input type="text" name="registration" id="surname" required autocomplete="off">
+        </div>
+        <div class="enterInput">
+          <label for="name">Имя</label>
           <input type="text" name="registration" id="name" required autocomplete="off">
         </div>
         <div class="enterInput">
+          <label for="name">Отчество</label>
+          <input type="text" name="registration" id="patronymic" required autocomplete="off">
+        </div>
+        <div class="enterInput">
           <label for="car-brand">Марка авто</label>
-          <input type="text" name="registration" id="car-brand" required autocomplete="off">
+          <select type="text" name="registration" id="car-brand" required>
+            <option value="cb-01">Datsun</option>
+            <option value="cb-02">Ferrari</option>
+            <option value="cb-03">Huanghai</option>
+            <option value="cb-04">Hummer</option>
+            <option value="cb-05">Lotus</option>
+            <option value="cb-06">Mercedes-Benz</option>
+            <option value="cb-07">Rolls-Royce</option>
+            <option value="cb-08">SsangYong</option>
+            <option value="cb-09">ГАЗ</option>
+            <option value="cb-10">ИЖ</option>
+          </select>
         </div>
         <div class="enterInput">
           <label for="car-model">Модель авто</label>
-          <input type="text" name="registration" id="car-model" required autocomplete="off">
+          <select type="text" name="registration" id="car-model" required>
+            <option value="cm-01">cm-01</option>
+            <option value="cm-02">cm-02</option>
+            <option value="cm-03">cm-03</option>
+            <option value="cm-04">cm-04</option>
+            <option value="cm-05">cm-05</option>
+            <option value="cm-06">cm-06</option>
+            <option value="cm-07">cm-07</option>
+            <option value="cm-08">cm-08</option>
+            <option value="cm-09">cm-09</option>
+            <option value="cm-10">cm-10</option>
+          </select>
         </div>
         <div class="enterInput">
           <label for="car-number">Гос. номер</label>
@@ -200,12 +230,12 @@
         </div>
       </div>
 
-      <div id="carePage" class="all-service" hidden>
+      <!-- <div id="carePage" class="all-service" hidden>
         <div class="card" onclick="seeService(this)" service="care-1">
           <div class="preview" time-delay="90-120 мин"><img src="image/service/preview/Стандарт.png" alt="">
           </div>
           <div>Стандарт</div>
-        </div>
+        </div> -->
         <div class="card" onclick="seeService(this)" service="care-2">
           <div class="preview" time-delay="90-120 мин"><img src="image/service/preview/Стандарт +.png" alt="">
           </div>
@@ -828,6 +858,44 @@
 
     <section id="appointment" hidden>
       <form action="">
+        <div class="salon">
+          <h4>Выбрать салон</h4>
+          <input type="radio" name="salon" id="yeltsin" checked>
+          <label for="yeltsin">
+            <div class="card">
+              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+              </div>
+              <div>Ельцин центр</div>
+              <div class="sub-text">Бориса ельцина 3, паркинг, В сектор</div>
+            </div>
+          </label>
+        
+          <input type="radio" name="salon" id="alatyr">
+          <label for="alatyr">
+            <div class="card">
+              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+              </div>
+              <div>ТРЦ Алатырь</div>
+              <div class="sub-text">Малышева 5, паркинг, -3 этаж</div>
+            </div>
+          </label>
+        
+          <input type="radio" name="salon" id="tower">
+          <label for="tower">
+            <div class="card">
+              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
+              </div>
+              <div>Башня Исеть</div>
+              <div class="sub-text">Бориса ельцина 6, паркинг, -2 этаж</div>
+            </div>
+          </label>
+        </div>
+        <div class="auto slider">
+          <h4>Выбрать авто</h4>
+          <input type="radio" name="auto" id="auto-1" checked><label for="auto-1">Audi - A5</label>
+          <input type="radio" name="auto" id="auto-2"><label for="auto-2">Mini - Cooper</label>
+          <input type="radio" name="auto" id="auto-3"><label for="auto-3">Мотоцикл</label>
+        </div>
         <div class="date">
           <h4>Выбрать дату</h4>
           <div class="slider">
@@ -975,45 +1043,6 @@
             </div>
           </div>
         </div>
-        <div class="auto slider">
-          <h4>Выбрать авто</h4>
-          <input type="radio" name="auto" id="auto-1" checked><label for="auto-1">Audi - A5</label>
-          <input type="radio" name="auto" id="auto-2"><label for="auto-2">Mini - Cooper</label>
-          <input type="radio" name="auto" id="auto-3"><label for="auto-3">Мотоцикл</label>
-        </div>
-        <div class="salon">
-          <h4>Выбрать салон</h4>
-          <input type="radio" name="salon" id="yeltsin" checked>
-          <label for="yeltsin">
-            <div class="card">
-              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
-              </div>
-              <div>Ельцин центр</div>
-              <div class="sub-text">Бориса ельцина 3, паркинг, В сектор</div>
-            </div>
-          </label>
-
-          <input type="radio" name="salon" id="alatyr">
-          <label for="alatyr">
-            <div class="card">
-              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
-              </div>
-              <div>ТРЦ Алатырь</div>
-              <div class="sub-text">Малышева 5, паркинг, -3 этаж</div>
-            </div>
-          </label>
-
-          <input type="radio" name="salon" id="tower">
-          <label for="tower">
-            <div class="card">
-              <div class="preview" time-delay="9:00 - 22:00"><img src="image/map-low.png" alt="">
-              </div>
-              <div>Башня Исеть</div>
-              <div class="sub-text">Бориса ельцина 6, паркинг, -2 этаж</div>
-            </div>
-          </label>
-        </div>
-
         <input type="submit" value="Записаться" class="btn enable" onclick="record()">
       </form>
     </section>
